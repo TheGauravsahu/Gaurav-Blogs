@@ -4,7 +4,7 @@ import { GITHUB_TOKEN } from '$env/static/private';
 export const load: PageLoad = async ({ fetch }) => {
 	const query = `{
 		repository(name: "Gaurav-Blogs", owner: "TheGauravsahu") {
-		  discussions(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
+		  discussions(first: 6, orderBy: {field: CREATED_AT, direction: DESC}) {
 			nodes {
 			  title
 			  number
