@@ -1,10 +1,10 @@
 import type { PageLoad } from './$types';
 import { GITHUB_TOKEN } from '$env/static/private';
 
-export const load: PageLoad = async ({ fetch }) => {
+export const load: PageLoad = async ({ fetch, setHeaders }) => {
 	const query = `{
 		repository(name: "Gaurav-Blogs", owner: "TheGauravsahu") {
-		  discussions(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
+		  discussions(first: 6, orderBy: {field: CREATED_AT, direction: DESC}) {
 			nodes {
 			  title
 			  number
@@ -18,6 +18,10 @@ export const load: PageLoad = async ({ fetch }) => {
 		  }
 		}
 	  }`;
+
+	setHeaders({
+		'Cache-Control': `max-age=0, s-maxage=${60 * 60}`
+	});
 
 	try {
 		const res = await fetch('https://api.github.com/graphql', {

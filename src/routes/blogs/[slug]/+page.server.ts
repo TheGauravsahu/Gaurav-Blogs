@@ -1,7 +1,7 @@
 import type { PageLoad } from './$types';
 import { GITHUB_TOKEN } from '$env/static/private';
 
-export const load: PageLoad = async ({ params, fetch }) => {
+export const load: PageLoad = async ({ params, fetch, setHeaders }) => {
 	const variables = { number: parseInt(params.slug) };
 
 	const query = `query GetDiscussion($number: Int!) {
@@ -19,6 +19,9 @@ export const load: PageLoad = async ({ params, fetch }) => {
 		  }
 		}
 	  }`;
+	setHeaders({
+		'Cache-Control': `max-age=0, s-maxage=${60 * 60}`
+	});
 
 	try {
 		const res = await fetch('https://api.github.com/graphql', {
