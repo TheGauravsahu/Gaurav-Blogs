@@ -86,4 +86,8 @@ Feel free to reach out if you have any questions or need further information abo
 ### Customization Tips:
 - Replace `https://your-vercel-app-url` with the actual URL of your deployed application.
 - Modify the usage section if you have specific instructions or features to highlight.
+<<<<<<< HEAD
 - Include any additional sections, like FAQs or acknowledgments, as necessary.
+=======
+- Include any additional sections, like FAQs or acknowledgments, as necessary.
+>>>>>>> 24caaae36a4b47099bf2b06eea78ded103d9fca4
